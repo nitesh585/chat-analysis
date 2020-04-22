@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		@media (max-width: 450px) {
+			#header {
+				font-size: 74px;
+			}
+
+			h2 {
+				font-size: 40px;
+			}
+
+			h4 {
+				font-size: 18px;
+			}
+		}
+
+
+		@media (max-width: 375px) {
+			#header {
+				font-size: 66px;
+			}
+			h2{
+				font-size: 36px;
+			}
+		}
+
+		@media (max-width: 330px) {
+			#header {
+				font-size: 56px;
+			}
+			h2{
+				font-size: 36px;
+			}
+		}
+
+		h1 {
+			font-weight: bold;
+			font-size: 90px;
+			font-family: 'Courier New', Courier, monospace;
+			background-color: palevioletred;
+
+		}
+
+		h2 {
+			font-size: 50px;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		h4 {
+			font-size: 19px;
+			font-family: cursive;
+		}
+
+		#maxMsg {
+			color: white;
+			background-color: black;
+		}
+
+		body{
+			background-color: antiquewhite;;
+		}
+
+	</style>
+
+
+</head>
+
+<body>
+	<div class="container border border-dark" style="background-color: palevioletred;">
+		<div class="row">
+			<div class="col">
+				<h1 id='header' class="text-center p-2 mt-4 mb-5">CHAT ANALYSIS</h1>
+			</div>
+		</div>
+		<div class="row p-4">
+			<div class="col-md-3 border border-dark " style="background-color:mistyrose;">
+				<h2 class="text-center mt-4">{{msgs}}</h2>
+				<h4 class="text-center mb-4">Number of messages</h4>
+			</div>
+			<div class="col-md-3 border border-dark bg-light">
+				<h2 class="text-center mt-4">{{member}}</h2>
+				<h4 class="text-center mb-4">Number of members</h4>
+			</div>
+			<div class="col-md-3 border border-dark" style="background-color:mistyrose;">
+
+				<h2 class="text-center mt-4">{{sdate}}</h2>
+				<h4 class="text-center mb-4">Start Date</h4>
+			</div>
+			<div class="col-md-3 border border-dark bg-light">
+
+				<h2 class="text-center mt-4">{{edate}}</h2>
+				<h4 class="text-center mb-4">End Date</h4>
+			</div>
+		</div>
+
+
+		<div class="row p-4">
+			<div class="col-md-3 border border-dark bg-light">
+
+				<h2 class="text-center mt-4">{{avg}} words</h2>
+				<h4 class="text-center mb-4">Average message length</h4>
+			</div>
+			<div class="col-md-3 border border-dark" style="background-color:mistyrose;">
+
+				<h2 class="text-center mt-4">{{maxl}} words</h2>
+				<h4 class="text-center mb-4">Maximum message length</h4>
+			</div>
+			<div class="col-md-3 border border-dark bg-light">
+
+				<h2 class="text-center mt-4">{{day}}</h2>
+				<h4 class="text-center mb-4">Most busy weekday</h4>
+			</div>
+			<div class="col-md-3 border border-dark" style="background-color:mistyrose;">
+
+				<h2 class="text-center mt-4">{{month}}</h2>
+				<h4 class="text-center mb-4">Most busy month</h4>
+			</div>
+		</div>
+
+
+		<div class="row p-4">
+			<div class="col
+" id="maxMsg">
+				<h2 class="text-center mt-4">{{name}}</h2>
+				<h4 class="text-center mb-4">Maximum length message send by</h4>
+			</div>
+		</div>
+
+		<div class="row " style="background-color:white;">
+			<div class="col-md-5 text-center p-3  ">
+				<img src="{{url_for('static',filename = 'images/dashboard/'+filename+'pie.png')}}" class="img-fluid" />
+			</div>
+			<div class="col-md-7 text-center p-3">
+				<img src="{{url_for('static',filename = 'images/dashboard/'+filename+'mactive.png')}}"
+					class="img-fluid" />
+			</div>
+		</div>
+
+
+		<div class="row mt-1" style="background-color:white;">
+			<div class="col text-center">
+				<img src="{{url_for('static',filename = 'images/dashboard/'+filename+'week.png')}}" class="img-fluid" />
+			</div>
+		</div>
+
+		<div class="row mt-1" style="background-color:white;">
+			<div class="col text-center">
+				<img src="{{url_for('static',filename = 'images/dashboard/'+filename+'word.png')}}" class="img-fluid" />
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

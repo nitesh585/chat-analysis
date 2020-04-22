@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block head  %} 
+<style>
+    @media (max-width: 450px ) {
+        h6{font-size: 20px;}
+    }
+    body{
+        background-color: black;
+    };
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container"><img src="{{file}}" class="img-fluid"  />
+    <h6 style="background-color: black; color:white; text-align:center; width:100%">You can
+            save it as image.</h6>    
+</div>
+{% endblock %}
