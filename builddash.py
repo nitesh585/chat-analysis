@@ -43,8 +43,9 @@ def max_length_msg(filename):
     name=""
     for msg in df['Messages']:
         if(i < len(str(msg).split(' '))):
-            i = len(str(msg).split(' '))
-            name = df[df['Messages']==msg]['Contacts'].values[0]
+            if(df[df['Messages']==msg]['Contacts'].shape[0]>0):
+                i = len(str(msg).split(' '))
+                name = df[df['Messages']==msg]['Contacts'].values[0]
     return (i,name)
 
 
