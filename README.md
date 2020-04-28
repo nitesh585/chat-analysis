@@ -13,5 +13,6 @@ Web application to analyse your whatsapp chats
 + To run the application : `python app.py`
 + Open the browser the type: `localhost:5000/`
 
-Hurrah!! the is good to go.
+----------------------------------------------------
+Hurrah!!  application is good to go
 
