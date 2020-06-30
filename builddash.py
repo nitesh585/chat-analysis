@@ -7,22 +7,22 @@ from collections import Counter
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
-
+#return the number of messages in the csv file
 def number_of_msgs(filename):
     df = pd.read_csv(os.path.join('csvs/',filename))
     return df.shape[0]
 
-
+#return the number of unique members of the group
 def number_of_unique_members(filename):
     df = pd.read_csv(os.path.join('csvs/',filename))
     return np.unique(df['Contacts']).shape[0]
 
-
+# return the starting date of the group
 def start_date(filename):
     df = pd.read_csv(os.path.join('csvs',filename))
     return df['Date'][0]
 
-
+# return the end date of the group
 def end_date(filename):
     df = pd.read_csv(os.path.join('csvs',filename))
     return df['Date'][df.shape[0]-1]
