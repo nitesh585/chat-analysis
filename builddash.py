@@ -123,22 +123,6 @@ def least(filename):
     plt.savefig(os.path.join('static/images/dashboard',filename+'lactive.png') ,bbox_inches='tight')
 
 
-
-def pie(filename):
-    df = pd.read_csv(os.path.join('csvs',filename))
-    plt.figure(figsize=(6,6))
-    recipe = list( df.groupby('Shift').count()['Time'].index )
-    data = list(df.groupby('Shift').count()['Time'].values)
-    lable = list([str(recipe[0] + '\n'+str(data[0])+' msgs') ,str(recipe[1] + '\n'+str(data[1])+' msgs')])
-
-    plt.pie(data, textprops=dict( fontsize=15,
-        color="black"), wedgeprops=dict(width=0.45), startangle=20 ,labels=lable)
-
-    plt.title("Messages in respective Meridian", fontsize=20)
-    sb.despine( left=True, bottom=True)
-    plt.savefig(os.path.join('static/images/dashboard',filename+'pie.png') ,bbox_inches='tight')
-
-
 def week(filename):
     df = pd.read_csv(os.path.join('csvs',filename))
     plt.figure(figsize=(15,10))
@@ -164,64 +148,3 @@ def week(filename):
     plt.title("WeekDay-wise Messages", fontsize=20)
     sb.despine()
     plt.savefig(os.path.join('static/images/dashboard',filename+'week.png') ,bbox_inches='tight')
-
-
-
-def word(filename):
-    df = pd.read_csv(os.path.join('csvs',filename))
-    plt.figure(figsize=(20,15))
-    new_stop = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your',
-                'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it',
-                "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 
-                'that', "that'll", 
-                'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 
-                'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 
-                'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below',
-                'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 
-                'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 
-                'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 
-                'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 
-                'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't",
-                'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn',
-                "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't",'1','2','3','4','5','6','7',
-                '8','9','0','.',',','/','!','@','#','$','%','^','&','*','(',')','+','-','media','omitted','media omitted','nan','message deleted'
-               ]
-
-    for stop in new_stop:
-        STOPWORDS.add(stop)
-
-    i = 0
-
-    comment_words = ' '
-    stopwords = set(STOPWORDS) 
-
-    # iterate through the csv file 
-    for val in df['Messages']: 
-
-        # typecaste each val to string 
-        val = str(val) 
-
-        if "media omitted" in val:
-            i+=1
-        # split the value 
-        tokens = val.split() 
-
-        # Converts each token into lowercase 
-        for i in range(len(tokens)): 
-            tokens[i] = tokens[i].lower() 
-
-        for words in tokens: 
-            comment_words = comment_words + words + ' '
-
-
-    wordcloud = WordCloud(width = 1400, height = 800,
-                    background_color ='white', 
-                    stopwords = stopwords, 
-                    min_font_size = 10,
-                    max_font_size = 150,      
-                    colormap= 'plasma').generate(comment_words) 
-
-    plt.title("WORD CLOUD",fontsize=40)
-    plt.imshow(wordcloud) 
-    plt.axis("off") 
-    plt.savefig(os.path.join('static/images/dashboard',filename+'word.png') ,bbox_inches='tight')
