@@ -12,7 +12,7 @@ matplotlib==3.2.1
 numpy==1.18.2
 oauth2client==3.0.0
 pandas==1.0.3
-Pillow==7.1.1
+Pillow==8.1.1
 protobuf==3.11.3
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
