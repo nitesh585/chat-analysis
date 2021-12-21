@@ -1,175 +1,130 @@
-{% extends "template.html" %}
-
-{% block title %} home {% endblock %}
-
+{% extends "template.html" %} {% block title %} home {% endblock %} 
 {% block head %}
-
-<style>
-  .inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-  }
-
-  .inputfile+label {
-    font-size: 1.25em;
-    font-weight: 700;
-    border: black;
-    border-style: solid;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: inline-block;
-  }
-
-  .inputfile:focus+label,
-  .inputfile+label:hover {
-    color: whitesmoke;
-    background-color: rgb(7, 70, 7);
-  }
-
-  .border {
-    border-width: 5px !important;
-  }
-
-  #guidelines {
-    background: linear-gradient(to bottom, #e8ecee, #8e9aa7);
-    ;
-  }
-
-  h2 {
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  p {
-    font-family: Georgia, serif;
-  }
-
-  @media (max-width: 450px) {
-    h2 {
-      font-size: 30px;
-    }
-
-    p {
-      font-size: 20px;
-    }
-  }
-</style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
+  $(document).ready(function () {
+    $('input[type="file"]').change(function (e) {
+      var fileName = e.target.files[0].name;
 
-    $(document).ready(function(){
-
-        $('input[type="file"]').change(function(e){
-
-            var fileName = e.target.files[0].name;
-
-            alert('The file "' + fileName +  '" has been selected.');
-
-        });
-
+      alert('The file "' + fileName + '" has been selected.');
     });
-
+  });
 </script>
 
-
-
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div class="container-fluid">
-  <img src="{{url_for('static',filename='images/frontpage.JPG')}}" class="img-fluid" />
+  <img
+    src="{{url_for('static',filename='images/frontpage.JPG')}}"
+    class="img-fluid"
+  />
 
-  <hr>
-  <form class="form " method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
-    <div class="row border border-dark rounded p-2 ml-1 mr-1 ">
+  <hr />
+  <form
+    class="form"
+    method="POST"
+    action="{{ url_for('upload') }}"
+    enctype="multipart/form-data"
+  >
+    <div class="row border border-dark rounded p-2 ml-1 mr-1">
       <div class="col-md-6">
         <!--    <label for='upload-file'>Choose file</label>
           <input type="file" id="upload-file"> -->
         <input type="file" name="file" id="file" class="inputfile" />
-        <label id='label' for="file">Choose .txt file</label>
+        <label id="label" for="file">Choose .txt file</label>
       </div>
 
       <div class="col-md-6">
         <button type="submit" class="btn btn-lg btn-dark mb-2">Upload</button>
       </div>
-
     </div>
   </form>
 
-  <hr>
+  <hr />
 
   <div class="jumbotron m-0">
     <h2 class="text-center"><b>How to export chat from WhatsApp ?</b></h2>
-    <p class="text-monospace text-center"><i>follow the following images !!</i></p>
+    <p class="text-monospace text-center">
+      <i>follow the following images !!</i>
+    </p>
   </div>
 
   <div class="container-fluid p-2 text-center border-dark" id="guidelines">
     <div class="row">
       <div class="col-md-3 col-6">
         <h6 class="text text-uppercase pt-3 text-dark"><b>Step 1:</b></h6>
-        <img src="{{url_for('static' ,filename='images/step1.JPG')}}" class="img-fluid" />
+        <img
+          src="{{url_for('static' ,filename='images/step1.JPG')}}"
+          class="img-fluid"
+        />
       </div>
 
       <div class="col-md-3 col-6">
         <h6 class="text uppercase pt-3 text-dark"><b>Step 2:</b></h6>
-        <img src="{{url_for('static' ,filename='images/step2.JPG')}}" class="img-fluid" />
+        <img
+          src="{{url_for('static' ,filename='images/step2.JPG')}}"
+          class="img-fluid"
+        />
       </div>
 
       <div class="col-md-3 col-6">
         <h6 class="text uppercase pt-3 text-dark"><b>Step 3:</b></h6>
-        <img src="{{url_for('static' ,filename='images/step3.JPG')}}" class="img-fluid " />
+        <img
+          src="{{url_for('static' ,filename='images/step3.JPG')}}"
+          class="img-fluid"
+        />
       </div>
 
       <div class="col-md-3 col-6">
         <h6 class="text uppercase pt-3 text-dark"><b>Step 4:</b></h6>
-        <img src="{{url_for('static' ,filename='images/step4.JPG')}}" class="img-fluid" />
+        <img
+          src="{{url_for('static' ,filename='images/step4.JPG')}}"
+          class="img-fluid"
+        />
       </div>
     </div>
     <div class="row text-center mt-2 bg-light">
-        <div class="col-md-4">
-          <p>- Save the exported file on Google drive</p>
-        </div>
-        <div class="col-md-4">
-          <p>- Download the file from Google drive.</p>
-        </div>
-        <div class="col-md-4">
-          <p>- Upload it to the application </p>
-        </div>
+      <div class="col-md-4">
+        <p>- Save the exported file on Google drive</p>
+      </div>
+      <div class="col-md-4">
+        <p>- Download the file from Google drive.</p>
+      </div>
+      <div class="col-md-4">
+        <p>- Upload it to the application</p>
+      </div>
     </div>
-    
   </div>
 
-  <hr class="my-2">
+  <hr class="my-2" />
 </div>
 <footer>
   <div class="container-fluid text-center">
-    <div class="row" style="background-color:darkcyan">
+    <div class="row" style="background-color: darkcyan">
       <div class="col">
         <form method="GET" action="{{url_for('about')}}">
-          <button type="submit" class="btn btn-sm mb-2"
-            style="color:white;background-color: darkcyan;font-size:30px"><b>About</b></button>
+          <button
+            type="submit"
+            class="btn btn-sm mb-2"
+            style="color: white; background-color: darkcyan; font-size: 30px"
+          >
+            <b>About</b>
+          </button>
         </form>
       </div>
     </div>
-    <div class="row" style="background-color: black;">
+    <div class="row" style="background-color: black">
       <div class="col">
         <!-- Copyright -->
-        <div class="text-center" style="color: white; font-size:15px">© 2020 Copyright:
-          <a href="#" style="color: white;"> Nitesh Yadav</a>
+        <div class="text-center" style="color: white; font-size: 15px">
+          © 2021 Copyright:
+          <a href="#" style="color: white"> Nitesh Yadav</a>
         </div>
         <!-- Copyright -->
       </div>
     </div>
   </div>
-
-
 </footer>
-
 
 {% endblock %}

@@ -1,0 +1,178 @@
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  border: black;
+  border-style: solid;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: whitesmoke;
+  background-color: rgb(7, 70, 7);
+}
+
+.border {
+  border-width: 5px !important;
+}
+
+#guidelines {
+  background: linear-gradient(to bottom, #e8ecee, #8e9aa7);
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+p {
+  font-family: Georgia, serif;
+}
+
+@media (max-width: 450px) {
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  #header {
+    font-size: 74px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  #header {
+    font-size: 66px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 330px) {
+  #header {
+    font-size: 56px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 90px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: palevioletred;
+}
+
+h2 {
+  font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+h4 {
+  font-size: 19px;
+  font-family: cursive;
+}
+
+#maxMsg {
+  color: white;
+  background-color: black;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+@media (max-width: 450px) {
+  #header {
+    font-size: 74px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  #header {
+    font-size: 66px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 330px) {
+  #header {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 100px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: palevioletred;
+}
+
+h2 {
+  font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+h4 {
+  font-size: 19px;
+  font-family: cursive;
+}
+
+#maxMsg {
+  color: white;
+  background-color: black;
+}
+
+@media (max-width: 450px) {
+  h6 {
+    font-size: 20px;
+  }
+}
+body {
+  background-color: black;
+}

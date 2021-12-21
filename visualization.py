@@ -1,8 +1,6 @@
 import os
 import numpy as np
 import pandas as pd
-from contacts_less_than_5 import Contacts_less_than_5
-from contacts_Greater_than_5 import Contacts_greater_than_5
 from builddash import *
 from flask import render_template
 
