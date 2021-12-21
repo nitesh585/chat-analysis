@@ -9,7 +9,7 @@ Web application to analyse your whatsapp chats
   + create a virtualenv using the following command: `virtualenv my_name`
   + Remember to activate the relevant virtual environment every time you work on the project. This can be done using the   
     following command: `source virtualenv_name/bin/activate`
-+ Make sure all the python libraries are installed as mentioned in `requirements.txt` file using `pip`.
++ Make sure all the python libraries are installed as mentioned in `requirements.txt` file using <br> `pip install -r requirement.txt`.
 + To run the application : `python app.py`
 + Open the browser the type: `localhost:5000/`
 
